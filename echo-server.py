@@ -9,15 +9,15 @@ print("server starting - listening for connections at IP", HOST, "and port", POR
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     s.listen()
-    conn, addr = s.accept()
-    with conn:
-        print(f"Connected established with {addr}")
+    conn, addr = s.accept() #connection to send and recive data 
+    with conn: #can ignore, pretend not there. important though, with connection
+        print(f"Connected established with {addr}") #telling user whats up
         while True:
-            data = conn.recv(1024)
-            if not data:
+            data = conn.recv(1024) #every time this runs, object with method recv, takes in 1024 num. bytes. 
+            if not data: #if empty string, not data equates to false, break out of while loop 
                 break
             print(f"Received client message: '{data!r}' [{len(data)} bytes]")
             print(f"echoing '{data!r}' back to client")
-            conn.sendall(data)
+            conn.sendall(data) #instead of sending data, you coulf send back string "im not home"
 
 print("server is done!")

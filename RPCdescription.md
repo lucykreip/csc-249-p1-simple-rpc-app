@@ -1,0 +1,8 @@
+## Overview of Application:
+For my remote procedure call, I chose to do hardcoded client messages that had specific outputs from the server. This isn't as practical, as I'm not doing any sort of computation so it is not as applicable to user inputs. But it can deal with three requests, all concerning dining at Smith, and I thought it made for a more interesting client-server interaction. If i were to return to this, I would have it take input and have a bigger response base of questions it could respond to, with more specific one-word commands. The three requests are REQ1 = "List the best dining halls at Smith", REQ2 = "What is the best Haynes Stir Fry sauce", and REQ3 = "What are the dinner hours". The client class then creates a socket and connects to the server, and has a function sendMessage to encode and send data to the server. It also recieves the server result and prints it. On the server side, it also creates and socket and listens on the specified port for a client. It has a respond function to decode the client message, match the request with ones it knows, and encode and respond back to the client. While the connection to the socket endures, the server can respond to multiple of these requests in a row. When the server is no longer reciving messages, it closes. 
+
+## Client --> Server
+Questions: "List the best dining halls at Smith", "What is the best Haynes Stir Fry sauce", and "What are the dinner hours"
+
+## Server --> Client
+Responses: "Cutter, Haynes, and Nogi", "Gochujuang", "5pm - 7pm"
